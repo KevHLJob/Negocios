@@ -155,6 +155,8 @@
 
     }
 
+    //Esta es la parte donde nos aparecen los productos seleccionados por el client
+    // veremos la imagen precio y nombre
     LeerLSCompra() {
         let productosLS;
         productosLS = this.ObtenerProductosLocalStorage();
@@ -181,10 +183,11 @@
         });
     }
 
+    // metodo para calcular el total que hay en el carrito de compras
+    // debo solucionar un pequeño error al aumentar cantidad no actualiza el monto....
     CalcularTotal() {
         let productoLS;
         let total = 0,
-            subtotal = 0,
             igv = 0;
         productoLS = this.ObtenerProductosLocalStorage();
         for (let i = 0; i < productoLS.length; i++) {
@@ -192,15 +195,23 @@
             total = total + element;
 
         }
-        igv = parseFloat(total * 0.13).toFixed(2);
-        subtotal = parseFloat(total - igv).toFixed(2);
 
-        total = parseFloat(total).toFixed(2);
+        // Calulos para la factura
+        let totalpagar = 0;
+        igv = parseInt(total * 0.13).toFixed(2);
+        totalpagar = (Number(total) + Number(igv)).toFixed(2);
 
-        document.getElementById('subtotal').innerHTML = "Colones. " + subtotal;
+
+        total = parseInt(total).toFixed(2);
+
+        // function totalcon(total, igv) {
+        //     totalcomp = total + igv;
+        //     return totalcomp;
+        // }
+        document.getElementById('subtotal').innerHTML = "Colones. " + total;
         document.getElementById('igv').innerHTML = "Colones. " + igv;
 
-        document.getElementById('total').innerHTML = "Colones. " + total;
+        document.getElementById('total').innerHTML = "Colones. " + totalpagar;
     }
 
 
