@@ -1,0 +1,20 @@
+
+.quitar-float{
+	float: none;
+}
+.espacio-arriba{
+	margin-top: 100px;
+}
+
+.centro-imag{
+	margin-left: 475px;
+}
+
+
+.imagen-producto{
+	margin-top: 20px;
+}
+
+.acercade-espacioarriba{
+	margin-top: 70px;
+}
